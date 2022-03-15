@@ -24,8 +24,8 @@ public class AlbumController {
     public Album getAlbum(@PathVariable long id){
         return albumRepo.findById(id).get();
     }
-    @PostMapping("/albums/{id}/addAlbum")
-    public Album addSongToAlbum(@PathVariable long id, @RequestAttribute String book){
+    @PostMapping("/albums/{id}/addSong")
+    public Album addSongToAlbum(@PathVariable long id, @RequestAttribute String song){
         Album album = albumRepo.findById(id).get();
 //        songRepo.save(newSong);
         return album;
