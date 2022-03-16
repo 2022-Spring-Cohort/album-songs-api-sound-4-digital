@@ -10,4 +10,12 @@ public class ApiMasteryApplication {
 		SpringApplication.run(ApiMasteryApplication.class, args);
 	}
 
+
+
+
+
+
+
+
+	
 }
