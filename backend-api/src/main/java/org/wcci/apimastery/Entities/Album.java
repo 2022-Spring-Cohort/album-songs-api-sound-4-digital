@@ -1,4 +1,4 @@
-package org.wcci.apimastery.Entity;
+package org.wcci.apimastery.Entities;
 
 import javax.persistence.*;
 import java.util.Arrays;
