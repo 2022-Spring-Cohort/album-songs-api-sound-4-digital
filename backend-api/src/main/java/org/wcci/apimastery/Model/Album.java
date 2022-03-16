@@ -18,26 +18,25 @@ public class Album {
     private String recordLabel;
     private int rating;
 
-    @OneToMany( mappedBy = "Album")
+    @OneToMany
     private Collection<Song> songs;
 
-    @ElementCollection
-    private Collection<Integer> userRatings;
-    @Lob
-    @ElementCollection
-    private Collection<String> comments;
+
+    //private Collection<Integer> userRatings;
+
+    private String comments;
 
     protected Album(){
     }
 
-    public Album(String title, String image, String recordLabel, int rating, String...comments) {
+    public Album(String title, String image, String recordLabel, int rating, String comments) {
         this.title = title;
         this.image = image;
         this.recordLabel = recordLabel;
         this.rating = rating;
         this.songs = new ArrayList<Song>();
-        this.userRatings = new ArrayList<Integer>();
-        this.comments = Set.of(comments);
+     //   this.userRatings = new ArrayList<Integer>();
+        this.comments = comments;
     }
 
     public long getId() {
@@ -56,7 +55,7 @@ public class Album {
         return recordLabel;
     }
 
-    public Collection<String> getComments() {
+    public String getComments() {
         return comments;
     }
 

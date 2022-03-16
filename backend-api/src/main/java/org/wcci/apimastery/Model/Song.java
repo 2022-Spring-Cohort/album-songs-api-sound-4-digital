@@ -13,7 +13,7 @@ public class Song {
     private String title;
     private String link;
     private int duration;
-    @ElementCollection
+
     private String comment;
     private int ratings;
 
