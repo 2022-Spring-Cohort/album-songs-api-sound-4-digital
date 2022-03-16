@@ -3,8 +3,6 @@ package org.wcci.apimastery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.wcci.apimastery.Entity.Album;
-import org.wcci.apimastery.Entity.Song;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
 
