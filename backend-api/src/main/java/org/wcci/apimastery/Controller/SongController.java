@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.wcci.apimastery.Entity.Song;
+import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
 
@@ -17,15 +17,5 @@ public class SongController {
         this.songRepo = songRepo;
         this.albumRepo = albumRepo;
     }
-    @GetMapping("/songs")
-    public Iterable<Song> getSongs(){
-        return songRepo.findAll();
-    }
-    @GetMapping("/songs/{id}")
-    public Song getSongs(@PathVariable long id){
-        return songRepo.findById(id).get();
-    }
-    //@PostMapping("")
-
 
 }
