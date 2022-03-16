@@ -26,9 +26,13 @@ public class Populator implements CommandLineRunner {
         Album heavyPettingZoo = new Album("Heavy Petting Zoo", "img_url", "self-published",
                 5, "it rocks");
         albumRepo.save(heavyPettingZoo);
+        Album albumOne = new Album("title","img", "sd",80,"it's the worst");
+        albumRepo.save(albumOne);
+
         Song hobophobic = new Song("title", "", 5, "", 5, heavyPettingZoo);
         songRepo.save(hobophobic);
         Song freedomLike = new Song("Freedom Like A Shopping Cart", "", 5, "", 5, heavyPettingZoo);
         songRepo.save(freedomLike);
     }
+
 }
