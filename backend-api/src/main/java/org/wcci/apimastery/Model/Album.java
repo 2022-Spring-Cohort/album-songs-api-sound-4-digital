@@ -70,8 +70,11 @@ public class Album {
     public void addSong(Song song){
         songs.add(song);
     }
+
     public void removeSong(Song song){
         songs.remove(song);
     }
+
+
 
 }
