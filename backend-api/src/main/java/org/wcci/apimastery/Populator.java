@@ -15,8 +15,20 @@ public class Populator implements CommandLineRunner {
     @Autowired
     private SongRepository songRepo;
 
+    public Populator(AlbumRepository albumRepo, SongRepository songRepo){
+        this.songRepo = songRepo;
+        this.albumRepo = albumRepo;
+    }
+
     @Override
     public void run(String... args) throws Exception {
 
+        Album heavyPettingZoo = new Album("Heavy Petting Zoo", "img_url", "self-published",
+                5, "it rocks");
+        albumRepo.save(heavyPettingZoo);
+        Song hobophobic = new Song("title", "", 5, "", 5, heavyPettingZoo);
+        songRepo.save(hobophobic);
+        Song freedomLike = new Song("Freedom Like A Shopping Cart", "", 5, "", 5, heavyPettingZoo);
+        songRepo.save(freedomLike);
     }
 }
