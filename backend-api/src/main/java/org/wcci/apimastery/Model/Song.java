@@ -1,4 +1,6 @@
-package org.wcci.apimastery.Entities;
+
+package org.wcci.apimastery.Model;
+
 
 import javax.persistence.*;
 import java.util.Collection;
