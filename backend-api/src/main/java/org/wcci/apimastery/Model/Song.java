@@ -14,17 +14,17 @@ public class Song {
     private String link;
     private int duration;
     @ElementCollection
-    private Collection<String> comments;
+    private String comment;
     private int ratings;
 
     @ManyToOne()
     private Album album;
 
-    public Song(String title, String link, int duration, Collection<String> comments, int ratings, Album album) {
+    public Song(String title, String link, int duration, String comment, int ratings, Album album) {
         this.title = title;
         this.link = link;
         this.duration = duration;
-        this.comments = comments;
+        this.comment = comment;
         this.ratings = ratings;
         this.album = album;
     }
@@ -48,8 +48,8 @@ public class Song {
         return duration;
     }
 
-    public Collection<String> getComments() {
-        return comments;
+    public String getComments() {
+        return comment;
     }
 
     public int getRatings() {
@@ -60,5 +60,7 @@ public class Song {
         return album;
     }
 
-
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
 }
