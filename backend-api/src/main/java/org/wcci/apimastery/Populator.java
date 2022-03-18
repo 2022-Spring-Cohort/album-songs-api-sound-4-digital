@@ -26,8 +26,8 @@ public class Populator implements CommandLineRunner {
         Album imWithYou = new Album("I'm With You", "img_url", "Warner Records",
                 5, "it rocks");
         albumRepo.save(imWithYou);
-        Album albumOne = new Album("title","img", "sd",80,"it's the worst");
-        albumRepo.save(albumOne);
+        Album takeCareTrack = new Album("Take Care","img", "sd",80,"it's the worst");
+        albumRepo.save(takeCareTrack);
         Album starBoy = new Album("Side Walk","img_url2","Best One",10,"Awesome");
         albumRepo.save(starBoy);
         Album takeCare = new Album("Headlines","img","ys",9,"great taste");
