@@ -18,25 +18,23 @@ public class Album {
     private String recordLabel;
     private int rating;
 
-    @OneToMany
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
 
-
-    //private Collection<Integer> userRatings;
-
-    private String comments;
+    @Lob
+    @ElementCollection
+    private Collection<String> comments;
 
     protected Album(){
     }
 
-    public Album(String title, String image, String recordLabel, int rating, String comments) {
+    public Album(String title, String image, String recordLabel, int rating, String...comments) {
         this.title = title;
         this.image = image;
         this.recordLabel = recordLabel;
         this.rating = rating;
         this.songs = new ArrayList<Song>();
-     //   this.userRatings = new ArrayList<Integer>();
-        this.comments = comments;
+        this.comments = Set.of(comments);
     }
 
     public long getId() {
@@ -47,16 +45,16 @@ public class Album {
         return title;
     }
 
+    public void changeAlbumTitle(String newAlbumTitle) {
+        title = newAlbumTitle;
+    }
+
     public String getImage() {
         return image;
     }
 
     public String getRecordLabel() {
         return recordLabel;
-    }
-
-    public String getComments() {
-        return comments;
     }
 
     public int getRatings() {
@@ -75,6 +73,11 @@ public class Album {
         songs.remove(song);
     }
 
+    public Iterable<String> getComments() {
+        return comments;
+    }
 
-
-}
+    public void addCommentToAlbum(String newCommentAlbum){
+        this.comments.add(newCommentAlbum);
+    }
+    }
