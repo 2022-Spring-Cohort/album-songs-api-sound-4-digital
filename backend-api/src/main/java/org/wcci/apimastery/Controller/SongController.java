@@ -26,10 +26,12 @@ public class SongController {
     public Song getSong(@PathVariable long id){
         return songRepo.findById(id).get();
     }
+
     @DeleteMapping("/songs/{id}")
-    public Iterable<Song> deleteSongById(@PathVariable Long id){
+    public Album deleteSongById(@PathVariable Long id){
+        Song song = songRepo.findById(id).get();
         songRepo.deleteById(id);
-        return songRepo.findAll();
+        return albumRepo.findById(song.getAlbum().getId()).get();
     }
 
 }
