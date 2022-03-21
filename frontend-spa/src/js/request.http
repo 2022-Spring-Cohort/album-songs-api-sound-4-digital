@@ -1,0 +1,31 @@
+### Get Albums
+
+GET http://localhost:8080/albums
+
+### Get Single Album
+GET http://localhost:8080/albums/1
+
+### Get Songs
+GET http://localhost:8080/songs
+
+### Add Song to Album
+POST http://localhost:8080/albums/1/addSong
+Content-Type: application/json
+
+{
+    "title": "I Swear (To God)",
+    "songLength": "3:21",
+    "artist": "Tyler Childers"
+}
+
+### Add Comment to Album
+POST http://localhost:8080/albums/1/addComment
+Content-Type: application/json
+
+    {
+        "author": "Kev",
+        "review": "Album comment goes brrr..."
+    }
+
+### Get Comments
+GET http://localhost:8080/comments
