@@ -26,8 +26,8 @@ public class Populator implements CommandLineRunner {
         Album imWithYou = new Album("I'm With You", "img_url", "Warner Records",
                 5, "it rocks");
         albumRepo.save(imWithYou);
-        Album albumOne = new Album("title","img", "sd",80,"it's the worst");
-        albumRepo.save(albumOne);
+        Album takeCareTrack = new Album("Take Care","img", "sd",80,"it's the worst");
+        albumRepo.save(takeCareTrack);
         Album starBoy = new Album("Side Walk","img_url2","Best One",10,"Awesome");
         albumRepo.save(starBoy);
         Album takeCare = new Album("Headlines","img","ys",9,"great taste");
@@ -36,33 +36,36 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(punkInDrublic);
 
 
-        Song goodbyeHooray = new Song("Goodbye Hooray", "", 5, "", 5, imWithYou);
+        Song goodbyeHooray = new Song(imWithYou, "", "5:20", 5, "great song");
         songRepo.save(goodbyeHooray);
-        Song brutus = new Song("Even You Brutus?", "", 5, "", 5, imWithYou);
+        Song brutus = new Song(imWithYou, "this is a title", "7:00", 5, "excellent");
         songRepo.save(brutus);
-        Song african = new Song("habibi", "", 7, "", 5, starBoy);
+        Song african = new Song(starBoy, "title of song", "2:37", 5, "popular");
         songRepo.save(african);
-        Song shotforme = new Song("Make me proud", "", 5, "", 5, takeCare);
+        Song shotforme = new Song(takeCare, "Make me proud", "4:20", 4, "dope");
         songRepo.save(shotforme);
-        Song doingitwrong = new Song("Practice", "", 5, "", 7, takeCare);
+        Song doingitwrong = new Song(takeCare, "Practice", "4:17", 3, "lmao");
         songRepo.save(doingitwrong);
-        Song wavinflag = new Song("Coca-Cola", "", 5, "", 7, starBoy);
+        Song wavinflag = new Song(starBoy, "Coca-Cola", "2:45", 3, "great song");
         songRepo.save(wavinflag);
-        Song ethiopia = new Song("Ethiopia", "", 4, "", 5, imWithYou);
+        Song ethiopia = new Song(imWithYou, "Ethiopia", "4:44", 7, "life changing song");
         songRepo.save(ethiopia);
-        Song happiness = new Song("Happiness Loves Company", "", 3, "", 5, imWithYou);
+        Song happiness = new Song(imWithYou, "Happiness Loves Company", "6:66", 6, "diabolical");
         songRepo.save(happiness);
-        Song linoleum = new Song("Linoleum", "", 4, "", 5, punkInDrublic);
+        Song linoleum = new Song(punkInDrublic, "Linoleum", "4:00",6,"cuh-razy");
         songRepo.save(linoleum);
-        Song theCause = new Song("The Cause", "", 4, "", 5, punkInDrublic);
+        Song theCause = new Song(punkInDrublic, "The Cause", "7:50", 7, "too quiet");
         songRepo.save(theCause);
-        Song fleas = new Song("Fleas", "", 4, "", 5, punkInDrublic);
+        Song fleas = new Song(punkInDrublic, "Fleas", "3:00", 8, "dope stuff");
         songRepo.save(fleas);
-        Song jeff = new Song("Jeff Wears Birkenstocks", "", 5, "", 5, punkInDrublic);
+        Song jeff = new Song(punkInDrublic, "Jeff Wears Birkenstocks", "4:10", 4, "hello-world");
         songRepo.save(jeff);
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> c508d75f92a2d3c8e37c34b6a1fec485fd99511e
     }
 
 }
