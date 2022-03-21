@@ -60,12 +60,6 @@ public class Populator implements CommandLineRunner {
         songRepo.save(fleas);
         Song jeff = new Song(punkInDrublic, "Jeff Wears Birkenstocks", "4:10", 4, "hello-world");
         songRepo.save(jeff);
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> c508d75f92a2d3c8e37c34b6a1fec485fd99511e
     }
 
 }
