@@ -3,29 +3,40 @@
 GET http://localhost:8080/albums
 
 ### Get Single Album
-GET http://localhost:8080/albums/1
+GET http://localhost:8080/albums/3
 
 ### Get Songs
 GET http://localhost:8080/songs
 
 ### Add Song to Album
-POST http://localhost:8080/albums/1/addSong
+POST http://localhost:8080/albums/3/addSong
 Content-Type: application/json
 
 {
-    "title": "I Swear (To God)",
-    "songLength": "3:21",
-    "artist": "Tyler Childers"
+    "songTitle": "Random title",
+      "duration": "5:37",
+      "ratings": 3,
+      "comments": [
+        "unique"
+      ]
 }
-
-### Add Comment to Album
-POST http://localhost:8080/albums/1/addComment
+### Create a new album
+POST http://localhost:8080/albums/addAlbum
 Content-Type: application/json
 
-    {
-        "author": "Kev",
-        "review": "Album comment goes brrr..."
-    }
+{
+  "title": "go away",
+  "image": "img3",
+  "recordLabel": "ls",
+  "songs": [],
+  "comments": [
+    "it's the best"
+  ],
+  "ratings": 4
+}
 
-### Get Comments
-GET http://localhost:8080/comments
+### Delete an album 
+DELETE http://localhost:8080/albums/26
+
+### Delete a song 
+DELETE  http://localhost:8080/songs/8

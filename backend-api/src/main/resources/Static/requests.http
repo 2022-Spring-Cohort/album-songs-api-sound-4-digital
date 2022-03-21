@@ -3,7 +3,7 @@
 GET http://localhost:8080/albums
 
 ### Get Single Album
-GET http://localhost:8080/albums/1
+GET http://localhost:8080/albums/
 
 ### Get Songs
 GET http://localhost:8080/songs
