@@ -1,4 +1,8 @@
 import home from "./home.js";
+import header from "./header.js";
+import footer from ".footer.js";
+import albumView from ".albumView.js"; 
+
 
 const containerEl = document.querySelector(".container");
 
@@ -27,9 +31,15 @@ function displayAlbumsFromJSON(albums) {
                 displayAlbums(albumJSON);
             }
         })
+      
     })
+    
 }
 
 displayAlbums();
+
+
+
+
 
 
