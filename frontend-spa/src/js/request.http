@@ -1,11 +1,12 @@
-### Get Albums
+### Mapping tests
 
+### Get All Albums
 GET http://localhost:8080/albums
 
 ### Get Single Album
 GET http://localhost:8080/albums/3
 
-### Get Songs
+### Get All Songs
 GET http://localhost:8080/songs
 
 ### Get Single Song
@@ -24,7 +25,7 @@ Content-Type: application/json
         "unique"
       ]
 }
-### Create a new album
+### Create New album
 POST http://localhost:8080/albums/addAlbum
 Content-Type: application/json
 
@@ -46,9 +47,15 @@ DELETE http://localhost:8080/albums/19
 DELETE  http://localhost:8080/songs/18
 
 ### Change Album Title
-
 PATCH  http://localhost:8080/albums/3
 
 {
   "title"
+}
+
+### Change Song Title
+PATCH http://localhost:8080/songs/13/
+
+{
+  "songName"
 }

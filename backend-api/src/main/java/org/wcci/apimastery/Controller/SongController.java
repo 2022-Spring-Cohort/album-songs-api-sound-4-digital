@@ -33,5 +33,12 @@ public class SongController {
         songRepo.deleteById(id);
         return albumRepo.findById(song.getAlbum().getId()).get();
     }
+    @PatchMapping("/songs/{id}")
+    public Iterable<Song> changeSongTitle(@PathVariable long id, @RequestBody String title) {
+        Song song = songRepo.findById(id).get();
+        song.changeSongTitle(title);
+        songRepo.save(song);
+        return  songRepo.findAll();
+    }
 
 }
