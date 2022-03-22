@@ -1,8 +1,11 @@
 import home from "./home.js";
 import header from "./header.js";
 import footer from "./footer.js";
+import songs from "./albumView.js";
 
 const containerEl = document.querySelector(".container");
+const contentEl = document.querySelector(".content");
+const footerEl = document.querySelector(".footer");
 
 function displayAlbums() {
     fetch("http://localhost:8080/albums")
@@ -15,8 +18,8 @@ function displayAlbums() {
 function displayAlbumsFromJSON(albums) {
 
     containerEl.innerHTML = header();
-    containerEl.innerHTML += home(albums);
-    containerEl.innerHTML += footer();
+    contentEl.innerHTML += home(albums);
+    footerEl.innerHTML += footer();
     
     const titleEl = containerEl.querySelectorAll(".title");
 
