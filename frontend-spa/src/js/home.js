@@ -1,6 +1,5 @@
 
 export default function home(albums) {
-    //
     return `
 
     <section class="albums">${albums.map(album => {
