@@ -26,19 +26,19 @@ public class Populator implements CommandLineRunner {
         Album imWithYou = new Album("I'm With You", "img_url", "Warner Records",
                 5, "it rocks");
         albumRepo.save(imWithYou);
-        Album takeCareTrack = new Album("Take Care","img", "sd",80,"it's the worst");
-        albumRepo.save(takeCareTrack);
-        Album starBoy = new Album("Side Walk","img_url2","Best One",10,"Awesome");
-        albumRepo.save(starBoy);
-        Album takeCare = new Album("Headlines","img","ys",9,"great taste");
+        Album takeCare = new Album("Take Care","img", "sd",80,"it's the worst");
         albumRepo.save(takeCare);
+        Album starBoy = new Album("Star Boy","img_url2","Best One",10,"Awesome");
+        albumRepo.save(starBoy);
+        Album headlines = new Album("Headlines","img","ys",9,"great taste");
+        albumRepo.save(headlines);
         Album punkInDrublic = new Album("Punk in Drublic", "", "Self-published", 10, "");
         albumRepo.save(punkInDrublic);
 
 
         Song goodbyeHooray = new Song(imWithYou, "", "5:20", 5, "great song");
         songRepo.save(goodbyeHooray);
-        Song brutus = new Song(imWithYou, "this is a title", "7:00", 5, "excellent");
+        Song brutus = new Song(headlines, "this is a title", "7:00", 5, "excellent");
         songRepo.save(brutus);
         Song african = new Song(starBoy, "title of song", "2:37", 5, "popular");
         songRepo.save(african);
@@ -56,7 +56,7 @@ public class Populator implements CommandLineRunner {
         songRepo.save(linoleum);
         Song theCause = new Song(punkInDrublic, "The Cause", "7:50", 7, "too quiet");
         songRepo.save(theCause);
-        Song fleas = new Song(punkInDrublic, "Fleas", "3:00", 8, "dope stuff");
+        Song fleas = new Song(headlines, "Fleas", "3:00", 8, "dope stuff");
         songRepo.save(fleas);
         Song jeff = new Song(punkInDrublic, "Jeff Wears Birkenstocks", "4:10", 4, "hello-world");
         songRepo.save(jeff);

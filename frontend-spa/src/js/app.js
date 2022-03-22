@@ -1,12 +1,8 @@
 import home from "./home.js";
 import header from "./header.js";
-import footer from ".footer.js";
-import albumView from ".albumView.js"; 
-
+import footer from "./footer.js";
 
 const containerEl = document.querySelector(".container");
-
-
 
 function displayAlbums() {
     fetch("http://localhost:8080/albums")
@@ -16,12 +12,12 @@ function displayAlbums() {
         })
 }
 
-
 function displayAlbumsFromJSON(albums) {
 
+    containerEl.innerHTML = header();
     containerEl.innerHTML += home(albums);
+    containerEl.innerHTML += footer();
     
-    const albumEl = containerEl.querySelector(".albums");
     const titleEl = containerEl.querySelectorAll(".title");
 
     titleEl.forEach(album => {

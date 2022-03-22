@@ -10,7 +10,7 @@ GET http://localhost:8080/albums/3
 GET http://localhost:8080/songs
 
 ### Get Single Song
-GET http://localhost:8080/songs/13
+GET http://localhost:8080/songs/8
 
 
 ### Add Song to Album
@@ -49,13 +49,9 @@ DELETE  http://localhost:8080/songs/18
 ### Change Album Title
 PATCH  http://localhost:8080/albums/3
 
-{
-  "title"
-}
+ryans mixtape vol. 7
 
 ### Change Song Title
-PATCH http://localhost:8080/songs/13/
+PATCH http://localhost:8080/songs/11/
 
-{
-  "songName"
-}
+i miss you so much
