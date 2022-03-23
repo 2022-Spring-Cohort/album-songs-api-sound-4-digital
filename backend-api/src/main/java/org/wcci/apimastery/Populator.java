@@ -34,6 +34,8 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(nwts);
         Album punkInDrublic = new Album("Punk in Drublic", "./src/img/punk.jpg", "Self-published", 10, "");
         albumRepo.save(punkInDrublic);
+        Album SosaLoveSongs = new Album("Always & Forever","heart.jpg","heart-eyes",100,"ILY");
+        albumRepo.save(SosaLoveSongs);
 
 
         Song goodbyeHooray = new Song(imWithYou, "", "5:20", 5, "great song");
