@@ -51,7 +51,7 @@ beatch
 PATCH http://localhost:8080/albums/6/addRating
 Content-Type: application/json
 
-66
+65
 
 ### add rating to song
 PATCH http://localhost:8080/songs/24/addRating
