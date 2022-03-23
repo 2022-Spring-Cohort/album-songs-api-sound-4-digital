@@ -1,5 +1,6 @@
 package org.wcci.apimastery.Controller;
 
+import org.springframework.http.converter.json.AbstractJsonHttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Model.Album;
@@ -34,11 +35,24 @@ public class SongController {
         return albumRepo.findById(song.getAlbum().getId()).get();
     }
     @PatchMapping("/songs/{id}")
-    public Iterable<Song> changeSongTitle(@PathVariable long id, @RequestBody String title) {
+    public Song changeSongTitle(@PathVariable long id, @RequestBody String title) {
         Song song = songRepo.findById(id).get();
         song.changeSongTitle(title);
         songRepo.save(song);
-        return  songRepo.findAll();
+        return song;
     }
-
+    @PatchMapping("/songs/{id}/addSongComment")
+    public Song addSongComment(@PathVariable long id, @RequestBody String newComment) {
+        Song song = songRepo.findById(id).get();
+        song.addCommentToSong(newComment);
+        songRepo.save(song);
+        return song;
+    }
+    @PatchMapping("/songs/{id}/addRating")
+    public Song addSongRating(@PathVariable long id, @RequestBody Integer rating){
+        Song song = songRepo.findById(id).get();
+        song.addSongRating(rating);
+        songRepo.save(song);
+        return song;
+    }
 }

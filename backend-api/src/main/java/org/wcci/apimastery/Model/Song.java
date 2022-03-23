@@ -2,6 +2,7 @@ package org.wcci.apimastery.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.Collection;
 
@@ -12,7 +13,9 @@ public class Song {
     private long id;
     private String songTitle;
     private String duration;
-    private int ratings;
+
+    @ElementCollection
+    private Collection<Integer> rating;
 
     @Lob
     @ElementCollection
@@ -23,11 +26,12 @@ public class Song {
     private Album album;
     protected Song(){
     }
-    public Song(Album album, String songTitle, String duration, int ratings, String...comments) {
+    public Song(Album album, String songTitle, String duration, int rating, String...comments) {
         this.album = album;
         this.songTitle = songTitle;
         this.duration = duration;
-        this.ratings = ratings;
+        this.rating = new ArrayList<Integer>();
+        this.rating.add(rating);
         this.comments = Set.of(comments);
     }
 
@@ -43,8 +47,8 @@ public class Song {
         return duration;
     }
 
-    public int getRatings() {
-        return ratings;
+    public Iterable<Integer> getSongRatings() {
+        return rating;
     }
 
     public long getId() {
@@ -59,11 +63,15 @@ public class Song {
         this.comments.add(newCommentSong);
     }
 
-    public void setAlbum(Album album) {
+    public void addToAlbum(Album album) {
         this.album = album;
     }
 
     public void changeSongTitle(String newSongTitle){
         this.songTitle = newSongTitle;
+    }
+
+    public void addSongRating(Integer rating) {
+        this.rating.add(rating);
     }
 }

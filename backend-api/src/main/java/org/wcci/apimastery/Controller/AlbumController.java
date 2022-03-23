@@ -39,13 +39,24 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
-    @PostMapping("/albums/{id}/addSong")
-    public Album addSongToAlbum(@PathVariable long id, @RequestBody Song songToAdd){
+    @PatchMapping("/albums/{id}/addComment")
+    public Album addAlbumComment(@PathVariable Long id, @RequestBody String newComment){
         Album album = albumRepo.findById(id).get();
-        Song song = new Song(album,songToAdd.getSongTitle(), songToAdd.getDuration(),songToAdd.getRatings());
-        songRepo.save(song);
-        return albumRepo.findById(id).get();
+        album.addCommentToAlbum(newComment);
+        albumRepo.save(album);
+        return album;
     }
+
+    @PatchMapping("/albums/{id}/addSong")
+    public Album addSong(@PathVariable Long id, @RequestBody Song song){
+        Album album = albumRepo.findById(id).get();
+        songRepo.save(song);
+        song.addToAlbum(album);
+        album.addSong(song);
+        albumRepo.save(album);
+        return album;
+    }
+
     @DeleteMapping("/albums/{id}/removeSong")
     public Album removeSongFromAlbum(@PathVariable long id, @RequestBody String songTitle){
         Album album = albumRepo.findById(id).get();
@@ -54,11 +65,19 @@ public class AlbumController {
         albumRepo.save(album);
         return albumRepo.findById(id).get();
     }
+
     @PatchMapping("/albums/{id}")
-    public Iterable<Album> changeAlbumTitle(@PathVariable long id, @RequestBody String title) {
+    public Album changeAlbumTitle(@PathVariable long id, @RequestBody String title) {
+        Album albumToEdit = albumRepo.findById(id).get();
+        albumToEdit.changeAlbumTitle(title);
+        albumRepo.save(albumToEdit);
+        return albumToEdit;
+    }
+    @PatchMapping("/albums/{id}/addRating")
+    public Album addAlbumRating(@PathVariable long id, @RequestBody Integer rating){
         Album album = albumRepo.findById(id).get();
-        album.changeAlbumTitle(title);
+        album.addAlbumRating(rating);
         albumRepo.save(album);
-        return  albumRepo.findAll();
+        return album;
     }
 }

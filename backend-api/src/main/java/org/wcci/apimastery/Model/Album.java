@@ -16,7 +16,10 @@ public class Album {
     private String title;
     private String image;
     private String recordLabel;
-    private int rating;
+    private Float averageRating;
+
+    @ElementCollection
+    private Collection<Integer> rating;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
@@ -32,7 +35,9 @@ public class Album {
         this.title = title;
         this.image = image;
         this.recordLabel = recordLabel;
-        this.rating = rating;
+        this.rating = new ArrayList<Integer>();
+        this.rating.add(rating);
+        this.averageRating = averageRating;
         this.songs = new ArrayList<Song>();
         this.comments = Set.of(comments);
     }
@@ -57,9 +62,16 @@ public class Album {
         return recordLabel;
     }
 
-    public int getRatings() {
+    public Iterable<Integer> getAlbumRating(){
         return rating;
     }
+
+//    public Float getAverageRating(){
+//        for(int i = 0; i <= rating.; i++){
+//            ratings += arr[i];
+//        }
+//        ratings /= i;
+//    }
 
     public Collection<Song> getSongs() {
         return songs;
@@ -80,4 +92,8 @@ public class Album {
     public void addCommentToAlbum(String newCommentAlbum){
         this.comments.add(newCommentAlbum);
     }
+
+    public void addAlbumRating(Integer rating){
+        this.rating.add(rating);
     }
+}
