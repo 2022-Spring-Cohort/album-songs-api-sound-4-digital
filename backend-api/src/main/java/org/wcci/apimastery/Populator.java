@@ -26,9 +26,9 @@ public class Populator implements CommandLineRunner {
         Album imWithYou = new Album("I'm With You", "./src/img/withYou.jpg", "Warner Records",
                 5, "it rocks");
         albumRepo.save(imWithYou);
-        Album takeCare = new Album("Take Care","./src/img/takeCare.jpg", "sd",80,"it's the worst");
+        Album takeCare = new Album("Take Care","./src/img/takeCare.jpg", "sd",80, "it's the worst");
         albumRepo.save(takeCare);
-        Album starBoy = new Album("Star Boy","./src/img/starboy.png","Best One",10,"Awesome");
+        Album starBoy = new Album("Star Boy","./src/img/starboy.png","Best One",10, "Awesome");
         albumRepo.save(starBoy);
         Album nwts = new Album("Nothing Was The Same","./src/img/nwts.jpg","ys",9,"great taste");
         albumRepo.save(nwts);
@@ -38,11 +38,11 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(SosaLoveSongs);
 
 
-        Song goodbyeHooray = new Song(imWithYou, "", "5:20", 5, "great song");
+        Song goodbyeHooray = new Song(imWithYou, "Goodbye Hooray", "5:20", 5, "great song");
         songRepo.save(goodbyeHooray);
-        Song brutus = new Song(imWithYou, "this is a title", "7:00", 5, "excellent");
+        Song brutus = new Song(imWithYou, "Even You, Brutus?", "7:00", 5, "excellent");
         songRepo.save(brutus);
-        Song african = new Song(starBoy, "title of song", "2:37", 5, "popular");
+        Song african = new Song(starBoy, "African", "2:37", 5, "popular");
         songRepo.save(african);
         Song shotforme = new Song(takeCare, "Make me proud", "4:20", 4, "dope");
         songRepo.save(shotforme);

@@ -39,3 +39,26 @@ footer {
     align-items: center;
     color: white;
 }
+
+.song-list {
+    display: flex;
+    color: white;
+    flex-direction: column;
+}
+
+.single_title {
+    color: white;
+}
+
+.singleAlbumPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.songs {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    margin-top: 15px;
+}

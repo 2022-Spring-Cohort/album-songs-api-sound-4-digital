@@ -16,7 +16,7 @@ public class Album {
     private String title;
     private String image;
     private String recordLabel;
-    private Float averageRating;
+    private int averageRating;
 
     @ElementCollection
     private Collection<Integer> rating;
@@ -37,7 +37,7 @@ public class Album {
         this.recordLabel = recordLabel;
         this.rating = new ArrayList<Integer>();
         this.rating.add(rating);
-        this.averageRating = averageRating;
+        getAverageRating();
         this.songs = new ArrayList<Song>();
         this.comments = Set.of(comments);
     }
@@ -66,11 +66,22 @@ public class Album {
         return rating;
     }
 
-//    public Float getAverageRating(){
-//        for(int i = 0; i <= rating.; i++){
-//            ratings += arr[i];
+    public void getAverageRating(){
+        if (rating.size() > 0) {
+            int sum = 0;
+            for (int num : rating) {
+                sum += num;
+            }
+            averageRating = sum / rating.size();
+
+        }
+    }
+
+//        getAlbumRating();
+//        for(int i = 0; i <= rating.toArray().length; i++){
+//            rating[i] += rating[i+1];
 //        }
-//        ratings /= i;
+//        rating /= i;
 //    }
 
     public Collection<Song> getSongs() {
