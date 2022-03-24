@@ -109,7 +109,6 @@ function makeAlbumView(album) {
           .catch(error => console.log(error));
   })
   //   addRatingBtn.addEventListener("click", () => {
-  //     console.log("clicked!");
   //     fetch(`http://localhost:8080/songs/${idEl.value}/addRating`, {
   //             method: 'PATCH',
               
@@ -117,23 +116,23 @@ function makeAlbumView(album) {
   //         })
   //         .then(res => res.json())
   //         .then(newAlbum2 => {
-  //             makeAlbumView(newAlbum2);
+  //             displayAlbums(newAlbum2);
   //         })
   //         .catch(error => console.log(error));
   // })
 
   
-        // renameSongBtn.addEventListener("click", () => {
-        //   const renameSongEl = songDiv.querySelector(".songRename");
-        //     fetch(`http://localhost:8080/songs/+${idEl.value}`, {
-        //             method: 'PATCH',
-        //             body: renameSongEl.value
-        //         })
-        //         .then(res => res.json())
-        //         .then(newAlbum => {
-        //             makeAlbumView(newAlbum);
-        //         })
-        // })
+        renameSongBtn.addEventListener("click", () => {
+          const renameSongEl = songDiv.querySelector(".songRename");
+            fetch(`http://localhost:8080/songs/+${idEl.value}`, {
+                    method: 'PATCH',
+                    body: renameSongEl.value
+                })
+                .then(res => res.json())
+                .then(newAlbum3 => {
+                    displayAlbums(newAlbum3);
+                })
+        })
 
         const deleteButton = songDiv.querySelector(".deleteSong");
         deleteButton.addEventListener("click", () => {
