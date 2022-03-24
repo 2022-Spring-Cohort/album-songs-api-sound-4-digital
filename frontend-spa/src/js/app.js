@@ -79,7 +79,74 @@ function makeAlbumView(album) {
     footerEl.innerHTML = footer();
 
 
+    const songDivs = contentEl.querySelectorAll(".songs");
+
+    // const titleInputEl = contentEl.querySelector(".titleInput");
+    // const recordInputEl = contentEl.querySelector(".recordLabelInput");
+    // const imageInputEl = contentEl.querySelector(".imageInput");
+    songDivs.forEach(songDiv => {
+    const idEl = songDiv.querySelector(".songID");
+    const addCommentInputEl = songDiv.querySelector(".addCommentInput");
+    const addCommentBtn = songDiv.querySelector(".addCommentBtn");
+
+    const addRatingEl = songDiv.querySelector(".addRatingInput");
+    const addRatingBtn = songDiv.querySelector(".addRatingBtn");
 
 
+    const renameSongBtn = songDiv.querySelector(".changeSongTitleBtn");
+
+    addCommentBtn.addEventListener("click", () => {
+      console.log("clicked!");
+      fetch(`http://localhost:8080/songs/${idEl.value}/addSongComment`, {
+              method: 'PATCH',
+              
+              body: addCommentInputEl.value
+          })
+          .then(res => res.json())
+          .then(newAlbum => {
+              makeAlbumView(newAlbum);
+          })
+          .catch(error => console.log(error));
+  })
+  //   addRatingBtn.addEventListener("click", () => {
+  //     console.log("clicked!");
+  //     fetch(`http://localhost:8080/songs/${idEl.value}/addRating`, {
+  //             method: 'PATCH',
+              
+  //             body: addRatingEl.value
+  //         })
+  //         .then(res => res.json())
+  //         .then(newAlbum2 => {
+  //             makeAlbumView(newAlbum2);
+  //         })
+  //         .catch(error => console.log(error));
+  // })
+
+  
+        // renameSongBtn.addEventListener("click", () => {
+        //   const renameSongEl = songDiv.querySelector(".songRename");
+        //     fetch(`http://localhost:8080/songs/+${idEl.value}`, {
+        //             method: 'PATCH',
+        //             body: renameSongEl.value
+        //         })
+        //         .then(res => res.json())
+        //         .then(newAlbum => {
+        //             makeAlbumView(newAlbum);
+        //         })
+        // })
+
+        const deleteButton = songDiv.querySelector(".deleteSong");
+        deleteButton.addEventListener("click", () => {
+            fetch(`http://localhost:8080/songs/${idEl.value}`, {
+                    method: 'DELETE'
+                })
+                .then(res => res.json())
+                .then(newAlbum4 => {
+                    makeAlbumView(newAlbum4);
+                })
+        })
+
+
+  }) 
 
 }

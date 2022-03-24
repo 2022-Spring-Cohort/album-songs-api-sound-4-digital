@@ -42,9 +42,9 @@ Patch http://localhost:8080/albums/3/addComment
 actually awesome
 
 ### add comment to song
-PATCH http://localhost:8080/songs/22/addSongComment
+PATCH http://localhost:8080/songs/7/addSongComment
 
-beatch
+nuts
 
 
 ### add Rating to album

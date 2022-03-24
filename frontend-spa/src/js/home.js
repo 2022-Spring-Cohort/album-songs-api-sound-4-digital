@@ -19,6 +19,7 @@ export default function home(albums) {
         <input type="text" placeholder="Image (as text)" class="imageInput" \>
             
         <button class="addAlbumButton">Add Album</button>
+        
     </div>
     `
     

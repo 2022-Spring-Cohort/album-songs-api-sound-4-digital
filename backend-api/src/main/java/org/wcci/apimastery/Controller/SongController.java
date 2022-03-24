@@ -42,17 +42,17 @@ public class SongController {
         return song;
     }
     @PatchMapping("/songs/{id}/addSongComment")
-    public Song addSongComment(@PathVariable long id, @RequestBody String newComment) {
+    public Album addSongComment(@PathVariable long id, @RequestBody String newComment) {
         Song song = songRepo.findById(id).get();
         song.addCommentToSong(newComment);
         songRepo.save(song);
-        return song;
+        return song.getAlbum();
     }
     @PatchMapping("/songs/{id}/addRating")
-    public Song addSongRating(@PathVariable long id, @RequestBody Integer rating){
+    public Album addSongRating(@PathVariable long id, @RequestBody Integer rating){
         Song song = songRepo.findById(id).get();
         song.addSongRating(rating);
         songRepo.save(song);
-        return song;
+        return song.getAlbum();
     }
 }
