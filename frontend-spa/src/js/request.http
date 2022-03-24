@@ -42,7 +42,7 @@ Patch http://localhost:8080/albums/3/addComment
 actually awesome
 
 ### add comment to song
-PATCH http://localhost:8080/songs/24/addSongComment
+PATCH http://localhost:8080/songs/22/addSongComment
 
 beatch
 
@@ -51,19 +51,19 @@ beatch
 PATCH http://localhost:8080/albums/6/addRating
 Content-Type: application/json
 
-65
+100
 
 ### add rating to song
-PATCH http://localhost:8080/songs/24/addRating
+PATCH http://localhost:8080/songs/22/addRating
 Content-Type: application/json
 
-69
+10
 
 ### Delete an album 
-DELETE http://localhost:8080/albums/21
+DELETE http://localhost:8080/albums/6
 
 ### Delete a song 
-DELETE  http://localhost:8080/songs/24
+DELETE  http://localhost:8080/songs/22
 
 ### Change Album Title
 PATCH  http://localhost:8080/albums/3
