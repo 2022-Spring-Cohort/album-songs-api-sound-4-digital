@@ -36,8 +36,7 @@ public class Album {
         this.image = image;
         this.recordLabel = recordLabel;
         this.rating = new ArrayList<Integer>();
-        this.rating.add(rating);
-        getAverageRating();
+        addAlbumRating(rating);
         this.songs = new ArrayList<Song>();
         this.comments = Set.of(comments);
     }
@@ -62,8 +61,13 @@ public class Album {
         return recordLabel;
     }
 
-    public Iterable<Integer> getAlbumRating(){
-        return rating;
+    public float getAlbumRating(){
+        return averageRating;
+    }
+
+    public void addAlbumRating(Integer rating){
+        this.rating.add(rating);
+        getAverageRating();
     }
 
     public void getAverageRating(){
@@ -73,16 +77,8 @@ public class Album {
                 sum += num;
             }
             averageRating = sum / rating.size();
-
         }
     }
-
-//        getAlbumRating();
-//        for(int i = 0; i <= rating.toArray().length; i++){
-//            rating[i] += rating[i+1];
-//        }
-//        rating /= i;
-//    }
 
     public Collection<Song> getSongs() {
         return songs;
@@ -104,7 +100,5 @@ public class Album {
         this.comments.add(newCommentAlbum);
     }
 
-    public void addAlbumRating(Integer rating){
-        this.rating.add(rating);
-    }
+
 }

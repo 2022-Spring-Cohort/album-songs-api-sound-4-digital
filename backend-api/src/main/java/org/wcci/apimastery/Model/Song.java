@@ -13,6 +13,7 @@ public class Song {
     private long id;
     private String songTitle;
     private String duration;
+    private int averageRating;
 
     @ElementCollection
     private Collection<Integer> rating;
@@ -31,6 +32,7 @@ public class Song {
         this.songTitle = songTitle;
         this.duration = duration;
         this.rating = new ArrayList<Integer>();
+        addSongRating(rating);
         this.rating.add(rating);
         this.comments = Set.of(comments);
     }
@@ -47,8 +49,22 @@ public class Song {
         return duration;
     }
 
-    public Iterable<Integer> getSongRatings() {
-        return rating;
+    public float getSongRatings() {
+        return averageRating;
+    }
+    public void addSongRating(Integer rating) {
+        this.rating.add(rating);
+        getAverageRating();
+    }
+
+    public void getAverageRating(){
+        if (rating.size() > 0) {
+            int sum = 0;
+            for (int num : rating) {
+                sum += num;
+            }
+            averageRating = sum / rating.size();
+        }
     }
 
     public long getId() {
@@ -69,9 +85,5 @@ public class Song {
 
     public void changeSongTitle(String newSongTitle){
         this.songTitle = newSongTitle;
-    }
-
-    public void addSongRating(Integer rating) {
-        this.rating.add(rating);
     }
 }
