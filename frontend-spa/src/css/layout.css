@@ -1,7 +1,8 @@
 html {
-    background-image: url('/src/img/mountains.avif');
+    background-image: url('/src/img/mountains.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Space Mono', monospace;
 }
 
 header {

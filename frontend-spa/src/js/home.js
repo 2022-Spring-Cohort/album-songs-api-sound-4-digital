@@ -12,6 +12,15 @@ export default function home(albums) {
     
 
     
-    `}).join("")}</section>`
+    `}).join("")}</section>
+    <div class="newAlbumDiv">
+        <input type="text" placeholder="Album Name" class="titleInput" \>
+        <input type="text" placeholder="Record Label" class="recordLabelInput" \>
+        <input type="text" placeholder="Image (as text)" class="imageInput" \>
+            
+        <button class="addAlbumButton">Add Album</button>
+        
+    </div>
+    `
     
 }
