@@ -47,7 +47,7 @@ footer {
     flex-direction: column;
 }
 
-.single_title {
+.single_title, .albumComments {
     color: white;
 }
 
@@ -60,6 +60,27 @@ footer {
 .songs {
     display: flex;
     justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
     font-size: x-large;
+    flex-direction: column;
     margin-top: 15px;
+    max-width: 60%;
 }
+
+button{
+    max-width: 150px;
+}
+
+input {
+    max-width: 400px;
+}
+
+.comments, .albumComments {
+    display: flex;
+    background-color: black;
+    border-radius: 5px;
+}
+
+
+
