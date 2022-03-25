@@ -1,7 +1,8 @@
 
 export default function albumView(album) {
     return `<section class="singleAlbumPage">
-    <h2 class="single_title">${album.title}</h2>
+    <button class="backBtn">BACK</button>
+    <h1 class="single_title">${album.title}</h1>
     <h3 class="albumRating">Rating: ${album.albumRating}</h3>
     <h4 class="recordLabel">Label: ${album.recordLabel}</h4>
     <input class="albumID" type="hidden" value="${album.id}">
@@ -9,7 +10,7 @@ export default function albumView(album) {
     <h4 class="albumComments">${album.comments}</h4>
 
     <section class="song-list">${album.songs.map(song => {
-        return `<div class="songs">${song.songTitle}
+        return `<div class="songs"><h3>${song.songTitle}</h3>
         <div class="duration">Duration: ${song.duration}</div>
         <div class="rating">Rating: ${song.songRatings}</div>
         <div class="comments">${song.comments}</div>
@@ -44,7 +45,7 @@ export default function albumView(album) {
     <input type="text" placeholder="Change Album Title" class="albumRename" />
     <button class="updateAlbumTitle">Change Album Name</button>
     <br>
-    <button class="deleteAlbum">Delete Album</button>
+    <button class="deleteAlbumBtn">Delete Album</button>
     <br>
     <br>`
 }
