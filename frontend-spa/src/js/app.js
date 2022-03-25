@@ -107,7 +107,7 @@ function makeAlbumView(album) {
       fetch(`http://localhost:8080/songs/${idEl.value}/addSongComment`, {
         method: "PATCH",
 
-        body: addCommentInputEl.value,
+        body: addCommentInputEl.value
       })
         .then((res) => res.json())
         .then((newAlbum) => {
@@ -173,7 +173,7 @@ function makeAlbumView(album) {
       songTitle: songInputEl.value,
       duration: 0,
       rating: [],
-      comments: [],
+      comments: []
     };
     fetch(`http://localhost:8080/albums/${albumIdEl.value}/addSong`, {
       method: 'PATCH',
@@ -193,7 +193,7 @@ function makeAlbumView(album) {
   const addAlbumRatingBtn = document.querySelector(".addAlbumRatingBtn");
 
   addAlbumRatingBtn.addEventListener("click", () => {
-    
+    if (addAlbumRatingInput.value >= 1 && addAlbumRatingInput.value <= 10) {
 
     fetch(`http://localhost:8080/albums/${albumIdEl.value}/addRating`, {
       method: "PATCH",
@@ -207,7 +207,7 @@ function makeAlbumView(album) {
         makeAlbumView(newAlbum2);
       })
       .catch((error) => console.log(error));
-  });
+  }});
 
   //add COMMENT to ALBUM
   const addAlbumCommentInput = document.querySelector(".addAlbumComment");
