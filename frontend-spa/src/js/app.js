@@ -30,9 +30,6 @@ function displayAlbumsFromJSON(albums) {
 
 
 
-// document.getElementById('bac').addEventListener('click', () => {
-//   history.back();
-// });
 
   //function to allow for a new album to be added
   addAlbumBtn.addEventListener("click", () => {
@@ -90,7 +87,7 @@ function makeAlbumView(album) {
   const songDivs = contentEl.querySelectorAll(".songs");
   const backBtn = singleAlbumEl.querySelector(".backBtn");
   backBtn.addEventListener("click", () => {
-    history.back();
+    displayAlbums();
   });
 
   // const titleInputEl = contentEl.querySelector(".titleInput");
@@ -103,7 +100,6 @@ function makeAlbumView(album) {
     const addRatingEl = songDiv.querySelector(".addRatingInput");
     const addRatingBtn = songDiv.querySelector(".addRatingBtn");
     const renameSongBtn = songDiv.querySelector(".changeSongTitleBtn");
-
 
     //event listener to add COMMENTS to SONGS
     addCommentBtn.addEventListener("click", () => {
@@ -120,18 +116,22 @@ function makeAlbumView(album) {
         .catch((error) => console.log(error));
     });
     //listener to add RATINGS to SONGS
-    // addRatingBtn.addEventListener("click", () => {
-    //   fetch(`http://localhost:8080/songs/${idEl.value}/addRating`, {
-    //     method: "PATCH",
+    addRatingBtn.addEventListener("click", () => {
+      console.log(addRatingEl);
 
-    //     body: addRatingEl.value,
-    //   })
-    //     .then((res) => res.json())
-    //     .then((newAlbum2) => {
-    //       displayAlbums(newAlbum2);
-    //     })
-    //     .catch((error) => console.log(error));
-    // });
+      fetch(`http://localhost:8080/songs/${idEl.value}/addRating`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: addRatingEl.value
+      })
+        .then((res) => res.json())
+        .then((newAlbum2) => {
+          makeAlbumView(newAlbum2);
+        })
+        .catch((error) => console.log(error));
+    });
     
     //enables RENAMING of SONGS
     renameSongBtn.addEventListener("click", () => {
@@ -188,6 +188,48 @@ function makeAlbumView(album) {
       })
   })
 
+  //add RATING to ALBUM
+  const addAlbumRatingInput = document.querySelector(".addAlbumRating");
+  const addAlbumRatingBtn = document.querySelector(".addAlbumRatingBtn");
+
+  addAlbumRatingBtn.addEventListener("click", () => {
+    
+
+    fetch(`http://localhost:8080/albums/${albumIdEl.value}/addRating`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: addAlbumRatingInput.value
+    })
+      .then((res) => res.json())
+      .then((newAlbum2) => {
+        makeAlbumView(newAlbum2);
+      })
+      .catch((error) => console.log(error));
+  });
+
+  //add COMMENT to ALBUM
+  const addAlbumCommentInput = document.querySelector(".addAlbumComment");
+  const addAlbumCommentBtn = document.querySelector(".addAlbumCommentBtn");
+
+  addAlbumCommentBtn.addEventListener("click", () => {
+    
+
+    fetch(`http://localhost:8080/albums/${albumIdEl.value}/addComment`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: addAlbumCommentInput.value
+    })
+      .then((res) => res.json())
+      .then((newAlbum2) => {
+        makeAlbumView(newAlbum2);
+      })
+      .catch((error) => console.log(error));
+  });
+
 //CHANGES the SONG TITLE
   const changeAlbumTitleBtn = contentEl.querySelector(".updateAlbumTitle");
   changeAlbumTitleBtn.addEventListener("click", () => {
@@ -212,7 +254,7 @@ function makeAlbumView(album) {
       })
         .then((res) => res.json())
         .then((newAlbum5) => {
-          makeAlbumView(newAlbum5);
+          displayAlbumsFromJSON(newAlbum5);
         });
         //line 186 needs work to refresh
   })
