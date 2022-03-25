@@ -9,7 +9,7 @@ export default function albumView(album) {
     <h4 class="recordLabel">Label: ${album.recordLabel}</h4>
     <input class="albumID" type="hidden" value="${album.id}">
     <img class="img_thumb" src="${album.image}">
-    <h4 class="albumComments">${album.comments}</h4>
+    <h4 class="albumComments">Comments: ${album.comments}</h4>
 
     <input type="text" placeholder="Add comment here" class="addAlbumComment"/>
     <button class="addAlbumCommentBtn">Add Comment</button>
@@ -35,7 +35,7 @@ export default function albumView(album) {
 
         
         <br>
-        <button class="deleteSong"><img src="./src/img/delete.png" width="100%" height="100%"></button>
+        <button class="deleteSong"><img src="./src/img/d.png" width="100%" height="80%"></button>
 
         
         </div>
@@ -51,7 +51,8 @@ export default function albumView(album) {
     <input type="text" placeholder="Change Album Title" class="albumRename" />
     <button class="updateAlbumTitle">Change Album Name</button>
     <br>
-    <button class="deleteAlbumBtn">Delete Album</button>
+    <p>Delete Album</p>
+    <button class="deleteAlbumBtn"><img src="./src/img/d.png" width="100%" height="80%"></button>
     <br>
     <br>`
 }
