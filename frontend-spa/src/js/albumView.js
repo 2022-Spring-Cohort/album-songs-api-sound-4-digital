@@ -4,7 +4,7 @@ export default function albumView(album) {
     <button class="backBtn">BACK</button>
     <h1 class="single_title">${album.title}</h1>
     <h3 class="albumRating">Rating: ${album.albumRating}</h3>
-    <input type="number" placeholder="Add rating here" class="addAlbumRating"/>
+    <input type="number" placeholder="Rating" class="addAlbumRating" min="1" max="10" onKeyDown="return false"/>
     <button class="addAlbumRatingBtn">Add Rating</button>
     <h4 class="recordLabel">Label: ${album.recordLabel}</h4>
     <input class="albumID" type="hidden" value="${album.id}">
@@ -25,9 +25,9 @@ export default function albumView(album) {
 
 
         <input type="text" placeholder="Add comment here" class="addCommentInput" />
-        <button class="addCommentBtn">Add Comment</button>
+        <button class="addCommentBtn"><img src="./src/img/addcomment.png" height="100%" width="100%"></button>
         <br>
-        <input type="number" placeholder="Add rating here" class="addRatingInput" />
+        <input type="number" placeholder="Rating" class="addRatingInput" min="1" max="10" onKeyDown="return false" />
         <button class="addRatingBtn">Add Rating</button>
         <br>
         <input type="text" placeholder="Change Song Title" class="songRename" />
@@ -35,7 +35,7 @@ export default function albumView(album) {
 
         
         <br>
-        <button class="deleteSong">Delete Song</button>
+        <button class="deleteSong"><img src="./src/img/delete.png" width="100%" height="100%"></button>
 
         
         </div>

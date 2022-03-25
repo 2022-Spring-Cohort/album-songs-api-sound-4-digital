@@ -18,7 +18,8 @@ export default function home(albums) {
         <input type="text" placeholder="Record Label" class="recordLabelInput" \>
         <input type="text" placeholder="Image (as text)" class="imageInput" \>
             
-        <button class="addAlbumButton">Add Album</button>
+        <button class="addAlbumButton" ><img class="buttomImg" src="./src/img/vinyl.gif" height="100%" width="100%"></button>
+        <p>^Click to add^</p>
         
     </div>
     `
