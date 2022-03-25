@@ -4,7 +4,7 @@
 GET http://localhost:8080/albums
 
 ### Get Single Album
-GET http://localhost:8080/albums/6
+GET http://localhost:8080/albums/0
 
 ### Get All Songs
 GET http://localhost:8080/songs
@@ -51,10 +51,10 @@ nuts
 PATCH http://localhost:8080/albums/6/addRating
 Content-Type: application/json
 
-100
+50
 
 ### add rating to song
-PATCH http://localhost:8080/songs/22/addRating
+PATCH http://localhost:8080/songs/8/addRating
 Content-Type: application/json
 
 10

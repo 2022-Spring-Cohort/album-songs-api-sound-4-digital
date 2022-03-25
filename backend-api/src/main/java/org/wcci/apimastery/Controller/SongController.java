@@ -35,11 +35,11 @@ public class SongController {
         return albumRepo.findById(song.getAlbum().getId()).get();
     }
     @PatchMapping("/songs/{id}")
-    public Song changeSongTitle(@PathVariable long id, @RequestBody String title) {
+    public Album changeSongTitle(@PathVariable long id, @RequestBody String title) {
         Song song = songRepo.findById(id).get();
         song.changeSongTitle(title);
         songRepo.save(song);
-        return song;
+        return song.getAlbum();
     }
     @PatchMapping("/songs/{id}/addSongComment")
     public Album addSongComment(@PathVariable long id, @RequestBody String newComment) {
